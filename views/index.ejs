@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <form action="/" method="post">
+    <label>ADD TASK HERE</label>
+    <input required type="text" name="add" placeholder="What is your TO DO?"/>
+    <input type="submit" value="ADD"/>
+  </form>
+  <ul>
+    <% for(let todo of todoList){ %>
+      <li><span><%= todo.content %></span></li>
+    <% } %>
+  </ul>
+  </body>
+</html>
