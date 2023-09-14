@@ -5,15 +5,21 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-  <form action="/" method="post">
-    <label>ADD TASK HERE</label>
-    <input required type="text" name="add" placeholder="What is your TO DO?"/>
-    <input type="submit" value="ADD"/>
-  </form>
-  <ul>
-    <% for(let todo of todoList){ %>
-      <li><span><%= todo.content %></span></li>
-    <% } %>
-  </ul>
+  <%- include('./error_messages.ejs'); %>
+  <% if(isAuth) { %>
+    <form action="/" method="post">
+      <label>ADD TASK HERE</label>
+      <input required type="text" name="add" placeholder="What is your TO DO?"/>
+      <input type="submit" value="ADD"/>
+    </form>
+    <ul>
+      <% for(let todo of todoList){ %>
+        <li><span><%= todo.content %></span></li>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <h1>Welcome to the Todo App</h1>
+    <a href="/signup">Sign up now!</a>
+  <% } %>
   </body>
 </html>
